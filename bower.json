@@ -1,0 +1,15 @@
+{
+  "name": "frontend-test-example",
+  "version": "0.0.0",
+  "authors": [
+    "tigmium <tigmium@example.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
