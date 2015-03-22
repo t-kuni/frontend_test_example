@@ -9,6 +9,7 @@ g.task 'webpack', ->
     'src/second.coffee'
   ]).pipe(named())
     .pipe(gwp(
+      watch: true
       module:
         loaders:
           [{ test: /\.coffee$/, loader: "coffee-loader" }]
@@ -26,3 +27,5 @@ g.task 'webpack', ->
       ]
     ))
     .pipe(g.dest('build'))
+
+g.task 'default', ['webpack']
