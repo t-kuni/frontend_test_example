@@ -2,10 +2,10 @@ gulp = require 'gulp'
 webpack = require 'webpack'
 gulpWebpack = require 'gulp-webpack'
 named = require 'vinyl-named'
-watch = require 'gulp-watch'
 karma = require 'gulp-karma'
 
 webpackConfig =
+  watch: true
   module:
     preLoaders: [
       test: /\.coffee$/
@@ -48,7 +48,7 @@ gulp.task 'karma', ->
   gulp.src('test/*.js')
     .pipe(karma(
       configFile: 'karma.conf.js',
-      action: 'run'
+      action: 'watch'
     ))
 
 gulp.task 'default', ['webpack:src', 'webpack:test']
