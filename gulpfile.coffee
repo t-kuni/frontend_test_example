@@ -1,5 +1,6 @@
 gulp = require 'gulp'
 webpack = require 'webpack'
+spawn = require('child_process').spawn
 gulpWebpack = require 'gulp-webpack'
 named = require 'vinyl-named'
 karma = require 'gulp-karma'
@@ -42,13 +43,18 @@ gulp.task 'webpack:test', ->
   gulp.src(['test/*.coffee'])
     .pipe(named())
     .pipe(gulpWebpack(webpackConfig))
-    .pipe(gulp.dest('test'))
+    .pipe(gulp.dest('test/build'))
 
 gulp.task 'karma', ->
-  gulp.src('test/*.js')
+  gulp.src('test/build/*.js')
     .pipe(karma(
       configFile: 'karma.conf.js',
       action: 'watch'
     ))
 
-gulp.task 'default', ['webpack:src', 'webpack:test']
+gulp.task 'watch', ->
+  spawn 'gulp', ['webpack:src'], { stdio: 'inherit' }
+  spawn 'gulp', ['webpack:test'], { stdio: 'inherit' }
+  spawn 'gulp', ['karma'], { stdio: 'inherit' }
+
+gulp.task 'default', ['webpack:src', 'webpack:test', 'karma']
