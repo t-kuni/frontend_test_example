@@ -4,6 +4,7 @@ spawn = require('child_process').spawn
 gulpWebpack = require 'gulp-webpack'
 named = require 'vinyl-named'
 karma = require 'gulp-karma'
+webserver = require 'gulp-webserver'
 
 webpackConfig =
   watch: true
@@ -52,9 +53,20 @@ gulp.task 'karma', ->
       action: 'watch'
     ))
 
+gulp.task 'server', ->
+  gulp.src 'test'
+    .pipe webserver
+      port: 9875
+      livereload: true
+      directoryListing:
+        enable: true
+        path: 'test'
+      host: '0.0.0.0'
+
 gulp.task 'watch', ->
   spawn 'gulp', ['webpack:src'], { stdio: 'inherit' }
   spawn 'gulp', ['webpack:test'], { stdio: 'inherit' }
   spawn 'gulp', ['karma'], { stdio: 'inherit' }
+  spawn 'gulp', ['server'], { stdio: 'inherit' }
 
 gulp.task 'default', ['webpack:src', 'webpack:test', 'karma']
