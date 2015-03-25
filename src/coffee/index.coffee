@@ -1,5 +1,7 @@
 $ = require 'jquery'
-modal = require 'modal.coffee'
+jade = require 'index.jade'
 
 $ ->
-  modal.open()
+  $ 'body'
+    .append jade
+      text: 'data binding here!'

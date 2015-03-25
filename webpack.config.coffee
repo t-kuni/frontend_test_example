@@ -11,21 +11,22 @@ module.exports =
     loaders: [
       { test: /\.coffee$/, loader: 'coffee' },
       { test: /\.sass$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?indentedSyntax' },
-      { test: /\.html$/, loader: 'html' }
-      { test: /\.png$|\.jpg$|/i, loader: 'url?limit=1' }
+      { test: /\.jade$/, loader: 'jade' }
+      { test: /\.png$|\.jpg$|\.gif$/i, loader: 'url?limit=1' }
     ]
   resolve:
     modulesDirectories: [
       'src/coffee',
       'src/coffee/lib',
       'src/sass',
-      'src/html',
+      'src/jade',
+      'src/img',
       'bower_components'
     ]
   output:
     filename: '[name].js'
     sourceMapFilename: '[file].map'
-    publicPath: ''
+    publicPath: 'build/'
   coffeelint:
     camel_case_classes: 'error'            # クラス名にキャメルケースを禁止
     empty_constructor_needs_parens: 'warn' # 括弧なしのインスタンス化を警告
