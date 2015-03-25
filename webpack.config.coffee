@@ -12,10 +12,12 @@ module.exports =
       { test: /\.coffee$/, loader: 'coffee' },
       { test: /\.sass$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?indentedSyntax' },
       { test: /\.html$/, loader: 'html' }
+      { test: /\.png$|\.jpg$|/i, loader: 'url?limit=1' }
     ]
   resolve:
     modulesDirectories: [
       'src/coffee',
+      'src/coffee/lib',
       'src/sass',
       'src/html',
       'bower_components'
