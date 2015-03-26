@@ -14,6 +14,11 @@ module.exports =
       { test: /\.jade$/, loader: 'jade' }
       { test: /\.png$|\.jpg$|\.gif$/i, loader: 'url?limit=1' }
     ]
+    # postLoaders: [
+    #   test: /\.js$/
+    #   exclude: /(test|node_modules|bower_components)\//
+    #   loader: 'istanbul-instrumenter'
+    # ]
   resolve:
     modulesDirectories: [
       'src/coffee',
@@ -26,7 +31,7 @@ module.exports =
   output:
     filename: '[name].js'
     sourceMapFilename: '[file].map'
-    publicPath: 'build/'
+    publicPath: '/build/'
   coffeelint:
     camel_case_classes: 'error'            # クラス名にキャメルケースを禁止
     empty_constructor_needs_parens: 'warn' # 括弧なしのインスタンス化を警告

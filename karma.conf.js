@@ -36,7 +36,7 @@ module.exports = function(config) {
     reporters: ['mocha', 'coverage'],
 
     preprocessors: {
-      'build/*.js': ['coverage']
+      // 'build/*.js': ['coverage']
     },
 
     coverageReporter: {
