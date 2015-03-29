@@ -39,6 +39,5 @@ gulp.task 'watch', ->
   spawn 'gulp', ['webpack:src'], stdio: 'inherit'
   spawn 'gulp', ['webpack:test'], stdio: 'inherit'
   spawn 'gulp', ['karma'], stdio: 'inherit'
-  spawn 'gulp', ['server'], stdio: 'inherit'
 
-gulp.task 'default', ['webpack:src', 'webpack:test', 'karma']
+gulp.task 'default', ['watch']

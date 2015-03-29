@@ -26,6 +26,7 @@ module.exports =
       'src/sass',
       'src/jade',
       'src/img',
+      'node_modules/phantomjs-polyfill',
       'bower_components'
     ]
   output:

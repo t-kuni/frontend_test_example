@@ -10,12 +10,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*.js'
+      'test/build/*.js'
     ],
 
 
@@ -33,15 +33,15 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha', 'coverage'],
+    reporters: ['mocha'],
 
-    preprocessors: {
-      // 'build/*.js': ['coverage']
-    },
+    // preprocessors: {
+    //   'build/*.js': ['coverage']
+    // },
 
-    coverageReporter: {
-      type : 'text'
-    },
+    // coverageReporter: {
+    //   type : 'text'
+    // },
 
     // web server port
     port: 9876,
@@ -67,7 +67,7 @@ module.exports = function(config) {
     client: {
       mocha: {
         reporter: 'html', // change Karma's debug.html to the mocha web reporter
-        ui: 'tdd'
+        ui: 'bdd'
       }
     },
 
