@@ -2,7 +2,7 @@ $ = require 'jquery'
 
 module.exports = class Contents
 
-  contents: $ ''
+  # contents: $ ''
 
   getContents: ->
     @contents

@@ -30,8 +30,10 @@ describe 'ContentsObserverクラス', ->
   describe '.append', ->
 
     it '単純に呼び出し', ->
+      child = new Contents()
+        .setContents $ '<div id="test-child">'
       new ContentsObserver 0
-        .append new Contents()
+        .append child
 
     it 'contentsに追加されているか', ->
       child = new Contents()
@@ -80,6 +82,7 @@ describe 'ContentsObserverクラス', ->
 
     it '単純に呼び出し', ->
       child = new Contents()
+        .setContents $ '<div id="test-child">'
       new ContentsObserver 0
         .append child
         .remove child

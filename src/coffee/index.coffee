@@ -1,15 +1,21 @@
 $ = require 'jquery'
 jade = require 'index.jade'
-Modal = require 'modal.coffee'
-HelloModal = require 'helloModal.coffee'
+
+Contents = require 'contents.coffee'
+ContentsObserver = require 'contentsObserver.coffee'
+ContentsModal = require 'contentsModal.coffee'
 
 $ ->
-  # $ 'body'
-    # .append jade
-    #   text: 'data binding here!'
+  observer = new ContentsObserver()
+  hello = new Contents()
+    .setContents $ '<h1>Contents!!</h1>'
+  modalHello = new ContentsModal hello
+    .setContents $ '<h1>aaAAAAAAAAA!!</h1>'
+    .setObserver observer
+    .append()
 
-  $ 'button'
-    .click ->
-      helloModal = new HelloModal()
-      $ 'body'
-        .append helloModal.obj
+  $ 'body'
+    .append observer.getContents()
+  
+  # $ 'button'
+  #   .click ->
