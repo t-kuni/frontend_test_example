@@ -4,6 +4,7 @@ jade = require 'index.jade'
 Contents = require 'contents.coffee'
 ContentsObserver = require 'contentsObserver.coffee'
 ContentsModal = require 'contentsModal.coffee'
+bbb = require 'bbb.jade'
 
 $ ->
   observer = new ContentsObserver()
@@ -16,6 +17,8 @@ $ ->
 
   $ 'body'
     .append observer.getContents()
+    # .append bbb(text:'Specify Dynamic')
+    .append bbb(text:'Specify Dynamic')
   
   # $ 'button'
   #   .click ->
